@@ -1,0 +1,136 @@
+﻿<UserControl
+    x:Class="MyTodo.Wpf.Views.MemoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:MyConv="clr-namespace:MyTodo.Wpf.Common"
+    xmlns:conv="clr-namespace:ValueConverters;assembly=ValueConverters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="clr-namespace:MyTodo.Wpf.Extensions"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:MyTodo.Wpf.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="640"
+    d:DesignWidth="1080"
+    Background="{StaticResource PrimaryColor1}"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <conv:ValueConverterGroup x:Key="FilterTextIsEmptyToVisibility">
+            <conv:StringIsNullOrEmptyConverter />
+            <conv:BoolToVisibilityConverter />
+        </conv:ValueConverterGroup>
+
+        <CollectionViewSource
+            x:Key="MemoView"
+            Filter="CollectionViewSource_Filter"
+            Source="{Binding MemoList}" />
+
+        <MyConv:MultiValueToObjectArrConvert x:Key="multiValueToObjectArrConvert" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <DockPanel Margin="10" LastChildFill="False">
+            <Canvas Width="200" DockPanel.Dock="Left">
+                <TextBox
+                    x:Name="SearchBox"
+                    Width="200"
+                    Height="20"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,1"
+                    Foreground="{StaticResource FontColor1}"
+                    TextChanged="FilteText_Changed" />
+                <Label
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource FontColor2}"
+                    Visibility="{Binding ElementName=SearchBox, Path=Text, Converter={StaticResource FilterTextIsEmptyToVisibility}}">
+                    查找备忘录...
+                </Label>
+            </Canvas>
+            <Button
+                Width="90"
+                Height="30"
+                Margin="0,0,10,0"
+                ex:ButtonHelper.CornerRadius="2"
+                Background="#3f9546"
+                BorderThickness="0"
+                Command="{Binding AddMemoCommand}"
+                Content="+ 添加备忘录"
+                DockPanel.Dock="Right"
+                FontWeight="DemiBold"
+                Style="{StaticResource CornerRadiusButton}" />
+        </DockPanel>
+
+
+        <ItemsControl
+            x:Name="memoListView"
+            Grid.Row="1"
+            Padding="30,0,30,0"
+            HorizontalAlignment="Center"
+            Background="{StaticResource PrimaryColor1}"
+            BorderThickness="0"
+            ItemsSource="{Binding Source={StaticResource MemoView}}"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Width="150"
+                        Height="130"
+                        Margin="8"
+                        Background="#10b136"
+                        CornerRadius="4">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding DataContext.ModifyMemoCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                    <i:InvokeCommandAction.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource multiValueToObjectArrConvert}">
+                                            <MultiBinding.Bindings>
+                                                <Binding Path="Id" />
+                                                <Binding Path="Title" />
+                                                <Binding Path="Content" />
+                                                <Binding Path="IsCompleted" />
+                                            </MultiBinding.Bindings>
+                                        </MultiBinding>
+                                    </i:InvokeCommandAction.CommandParameter>
+                                </i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="0" Softness="0" />
+                        </Border.BitmapEffect>
+
+                        <DockPanel Margin="10">
+                            <TextBlock
+                                HorizontalAlignment="Right"
+                                DockPanel.Dock="Right"
+                                Foreground="{StaticResource FontColor1}"
+                                Style="{StaticResource IconTextBlock}"
+                                Text="&#xe792;" />
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                DockPanel.Dock="Top"
+                                FontWeight="DemiBold"
+                                Foreground="{StaticResource FontColor1}"
+                                Text="{Binding Title}" />
+                            <TextBox
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="{StaticResource FontColor1}"
+                                IsReadOnly="True"
+                                Text="{Binding Content}"
+                                TextWrapping="Wrap" />
+                        </DockPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

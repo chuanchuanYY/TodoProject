@@ -1,0 +1,414 @@
+﻿<UserControl
+    x:Class="MyTodo.Wpf.Views.HomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cv="clr-namespace:MyTodo.Wpf.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="clr-namespace:MyTodo.Wpf.Extensions"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:MyTodo.Wpf.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="640"
+    d:DesignWidth="1080"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="{StaticResource PrimaryColor1}"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <cv:MultiValueToObjectArrConvert x:Key="multiValueToObjectArrConvert" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Margin="10"
+            FontSize="15"
+            FontWeight="DemiBold"
+            Foreground="{StaticResource FontColor2}"
+            Text="你好，Chuan！2023年9月28日星期六" />
+        <!--  顶部 卡片  -->
+        <UniformGrid
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="5"
+            Columns="4">
+            <!--  宽高比 2:1  -->
+            <Border
+                Width="240"
+                Height="120"
+                Margin="5"
+                Background="#0096ff"
+                ClipToBounds="True"
+                CornerRadius="5">
+                <Canvas>
+                    <StackPanel Margin="10,0,0,0" HorizontalAlignment="Left">
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="30"
+                            Foreground="{StaticResource FontColor1}"
+                            Style="{StaticResource IconTextBlock}"
+                            Text="&#xe680;" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="汇总" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="30"
+                            FontWeight="DemiBold"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="{Binding Summary, FallbackValue=0}" />
+                    </StackPanel>
+                    <Ellipse
+                        Canvas.Top="10"
+                        Canvas.Right="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                    <Ellipse
+                        Canvas.Right="-30"
+                        Canvas.Bottom="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                </Canvas>
+            </Border>
+            <Border
+                Width="240"
+                Height="120"
+                Margin="5"
+                Background="#11b136"
+                ClipToBounds="True"
+                CornerRadius="5">
+                <Canvas>
+                    <StackPanel Margin="10,0,0,0" HorizontalAlignment="Left">
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="28"
+                            Foreground="{StaticResource FontColor1}"
+                            Style="{StaticResource IconTextBlock}"
+                            Text="&#xe643;" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="已完成" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="30"
+                            FontWeight="DemiBold"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="{Binding CompleteCount, FallbackValue=0}" />
+                    </StackPanel>
+                    <Ellipse
+                        Canvas.Top="10"
+                        Canvas.Right="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                    <Ellipse
+                        Canvas.Right="-30"
+                        Canvas.Bottom="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                </Canvas>
+            </Border>
+            <Border
+                Width="240"
+                Height="120"
+                Margin="5"
+                Background="#00b4dd"
+                ClipToBounds="True"
+                CornerRadius="5">
+                <Canvas>
+                    <StackPanel Margin="10,0,0,0" HorizontalAlignment="Left">
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="30"
+                            Foreground="{StaticResource FontColor1}"
+                            Style="{StaticResource IconTextBlock}"
+                            Text="&#xe645;" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="完成比例" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="30"
+                            FontWeight="DemiBold"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="{Binding CompletionRate, FallbackValue=0%, StringFormat={}{0}%}" />
+                    </StackPanel>
+                    <Ellipse
+                        Canvas.Top="10"
+                        Canvas.Right="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                    <Ellipse
+                        Canvas.Right="-30"
+                        Canvas.Bottom="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                </Canvas>
+            </Border>
+            <Border
+                Width="240"
+                Height="120"
+                Margin="5"
+                Background="#ffa000"
+                ClipToBounds="True"
+                CornerRadius="5">
+                <Canvas>
+                    <StackPanel Margin="10,0,0,0" HorizontalAlignment="Left">
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="30"
+                            Foreground="{StaticResource FontColor1}"
+                            Style="{StaticResource IconTextBlock}"
+                            Text="&#xe647;" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="备忘录" />
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="30"
+                            FontWeight="DemiBold"
+                            Foreground="{StaticResource FontColor1}"
+                            Text="{Binding MemoCount, FallbackValue=0}" />
+                    </StackPanel>
+                    <Ellipse
+                        Canvas.Top="10"
+                        Canvas.Right="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                    <Ellipse
+                        Canvas.Right="-30"
+                        Canvas.Bottom="-50"
+                        Width="100"
+                        Height="100"
+                        Fill="White"
+                        Opacity="0.1" />
+                </Canvas>
+            </Border>
+        </UniformGrid>
+        <!--  代办  -->
+        <Border
+            Grid.Row="2"
+            Margin="20,20,20,10"
+            Background="{StaticResource PrimaryColor2}"
+            CornerRadius="5">
+            <DockPanel LastChildFill="False">
+                <DockPanel DockPanel.Dock="Top">
+                    <TextBlock
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Foreground="{StaticResource FontColor1}"
+                        Text="待办事项" />
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Right"
+                        Command="{Binding OpenDialog}"
+                        CommandParameter="AddTodoDialog">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border Background="#acd500" CornerRadius="15">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Foreground="{StaticResource PrimaryColor1}"
+                                        Style="{StaticResource IconTextBlock}"
+                                        Text="&#xeaf3;" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </DockPanel>
+
+
+
+                <!--  代办列表  -->
+                <ListBox
+                    x:Name="todoListBox"
+                    HorizontalContentAlignment="Stretch"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    DockPanel.Dock="Top"
+                    ItemsSource="{Binding TodoList}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding ModifyTotoCommand}" CommandParameter="{Binding ElementName=todoListBox, Path=SelectedValue}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel Margin="5" LastChildFill="False">
+                                <ToggleButton
+                                    x:Name="isCompleted"
+                                    Width="40"
+                                    Height="20"
+                                    DockPanel.Dock="Right"
+                                    Style="{StaticResource SliderToggleButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:PropertyChangedTrigger Binding="{Binding ElementName=isCompleted, Path=IsChecked}">
+                                            <i:InvokeCommandAction Command="{Binding DataContext.IsCompletedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <i:InvokeCommandAction.CommandParameter>
+                                                    <MultiBinding Converter="{StaticResource multiValueToObjectArrConvert}">
+                                                        <MultiBinding.Bindings>
+                                                            <Binding ElementName="isCompleted" Path="IsChecked" />
+                                                            <Binding Path="Id" />
+                                                        </MultiBinding.Bindings>
+                                                    </MultiBinding>
+                                                </i:InvokeCommandAction.CommandParameter>
+                                            </i:InvokeCommandAction>
+                                        </i:PropertyChangedTrigger>
+                                    </i:Interaction.Triggers>
+                                    <!--<ToggleButton.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource multiValueToObjectArrConvert}">
+                                            <MultiBinding.Bindings>
+                                                <Binding ElementName="isCompleted" Path="IsChecked"/>
+                                                <Binding Path="Id"/>
+                                            </MultiBinding.Bindings>
+                                        </MultiBinding>
+                                    </ToggleButton.CommandParameter>-->
+                                </ToggleButton>
+                                <StackPanel DockPanel.Dock="Left">
+                                    <TextBlock Foreground="{StaticResource FontColor1}" Text="{Binding Title}" />
+                                    <TextBlock Foreground="{StaticResource FontColor2}" Text="{Binding Content}" />
+                                </StackPanel>
+
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+
+            </DockPanel>
+
+        </Border>
+
+
+        <!--  备忘录  -->
+        <Border
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="20,20,20,10"
+            Background="{StaticResource PrimaryColor2}"
+            CornerRadius="5">
+
+            <DockPanel LastChildFill="False">
+                <DockPanel DockPanel.Dock="Top">
+                    <TextBlock
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Foreground="{StaticResource FontColor1}"
+                        Text="备忘录" />
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Right"
+                        Command="{Binding OpenDialog}"
+                        CommandParameter="AddMemoDialog">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border Background="#acd500" CornerRadius="15">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Foreground="{StaticResource PrimaryColor1}"
+                                        Style="{StaticResource IconTextBlock}"
+                                        Text="&#xeaf3;" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </DockPanel>
+                <!--  备忘录列表  -->
+                <ListBox
+                    x:Name="MemoListBox"
+                    HorizontalContentAlignment="Stretch"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    DockPanel.Dock="Top"
+                    ItemsSource="{Binding MemoList}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding ModifyMemoCommand}" CommandParameter="{Binding ElementName=MemoListBox, Path=SelectedValue}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel Margin="5" LastChildFill="False">
+                                <ToggleButton
+                                    x:Name="memoisCompleted"
+                                    Width="40"
+                                    Height="20"
+                                    DockPanel.Dock="Right"
+                                    Style="{StaticResource SliderToggleButton}">
+                                    <i:Interaction.Triggers>
+                                        <i:PropertyChangedTrigger Binding="{Binding ElementName=memoisCompleted, Path=IsChecked}">
+                                            <i:InvokeCommandAction Command="{Binding DataContext.IsCompletedCommandForMemo, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                <i:InvokeCommandAction.CommandParameter>
+                                                    <MultiBinding Converter="{StaticResource multiValueToObjectArrConvert}">
+                                                        <MultiBinding.Bindings>
+                                                            <Binding ElementName="memoisCompleted" Path="IsChecked" />
+                                                            <Binding Path="Id" />
+                                                        </MultiBinding.Bindings>
+                                                    </MultiBinding>
+                                                </i:InvokeCommandAction.CommandParameter>
+                                            </i:InvokeCommandAction>
+                                        </i:PropertyChangedTrigger>
+                                    </i:Interaction.Triggers>
+                                </ToggleButton>
+                                <StackPanel DockPanel.Dock="Left">
+                                    <TextBlock Foreground="{StaticResource FontColor1}" Text="{Binding Title}" />
+                                    <TextBlock Foreground="{StaticResource FontColor2}" Text="{Binding Content}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>
