@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CSiM0MWmwEPbE9xXKuhHhl2n2Yuf0A51DgpdAE+ZNL5E7g05AIZ/ubCZo6TgUieSJaxPE1TWnXi6bPXLL0uGsA==",
+  "dgSpecHash": "jHA9sXGl75HAnjwzVUFx0DK36y3E5tUvBph13RlNbK3RVs+hnHb7qmoKNzKq2uorVzZj/w8pSEchILl+kFWlVg==",
   "success": true,
-  "projectFilePath": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj",
+  "projectFilePath": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

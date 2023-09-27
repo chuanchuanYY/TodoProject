@@ -13,5 +13,12 @@ namespace MyToDo.WebAPI.Common
 		{
 			return new APIRespons(content, msg,false);
 		}
+
+		public static APIRespons CreateOkWithToken(string token,object? content = null, string? msg = null)
+		{
+			var res=new APIRespons(content, msg);
+			res.Token= token;
+			return res;
+		}
 	}
 }

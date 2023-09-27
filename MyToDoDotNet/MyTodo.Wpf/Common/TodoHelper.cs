@@ -16,6 +16,7 @@ namespace MyTodo.Wpf.Common
         public TodoHelper()
         {
 			_httpHelper = new HttpHelper();
+			_httpHelper.Token = UserManage.Token;
 		}
         private HttpHelper _httpHelper;
 		private string BaseUri = "https://localhost:7027";

@@ -17,6 +17,7 @@ namespace MyTodo.Wpf.Common
         public MemoHelper()
         {
 			httpHelper=new HttpHelper();
+			httpHelper.Token = UserManage.Token;
 		}
         public async Task<IEnumerable<Memo>> GetAll()
 		{

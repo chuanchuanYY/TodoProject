@@ -26,6 +26,7 @@ namespace MyTodo.Wpf.Common
 			{
 				return null;
 			}
+			UserManage.Token = jobj.GetValue("token")?.ToString();
 			return user;
 		}
 

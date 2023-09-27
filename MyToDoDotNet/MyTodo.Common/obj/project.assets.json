@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj",
+      "projectUniqueName": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj",
       "projectName": "MyTodo.Common",
-      "projectPath": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj",
+      "projectPath": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj",
       "packagesPath": "C:\\Users\\川川\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Common\\obj\\",
+      "outputPath": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

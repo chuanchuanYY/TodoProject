@@ -10,3 +10,15 @@ D:\MyWork\练习项目\初级项目\MyTodo\MyToDoDotNet\MyTodo.Common\obj\Debug\
 D:\MyWork\练习项目\初级项目\MyTodo\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\refint\MyTodo.Common.dll
 D:\MyWork\练习项目\初级项目\MyTodo\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.pdb
 D:\MyWork\练习项目\初级项目\MyTodo\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\ref\MyTodo.Common.dll
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\bin\Debug\net6.0\MyTodo.Common.deps.json
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\bin\Debug\net6.0\MyTodo.Common.dll
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\bin\Debug\net6.0\MyTodo.Common.pdb
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.csproj.AssemblyReference.cache
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.AssemblyInfoInputs.cache
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.AssemblyInfo.cs
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.csproj.CoreCompileInputs.cache
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.dll
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\refint\MyTodo.Common.dll
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\MyTodo.Common.pdb
+D:\MyWork\练习项目\初级项目\uploadGithub\TodoProject\MyToDoDotNet\MyTodo.Common\obj\Debug\net6.0\ref\MyTodo.Common.dll

@@ -10,6 +10,8 @@ namespace MyTodo.Common
 {
 	public class HttpHelper
 	{
+
+		public string? Token { get; set; }
 		#region return string
 		public async Task<string?> Get(string uri)
 		{
@@ -28,10 +30,12 @@ namespace MyTodo.Common
 				,Encoding.UTF8, "application/json");
 			return await Send(requestMessage);
 		}
-
+	
 		public async Task<string?> Send(HttpRequestMessage requestMessage)
 		{
 			using HttpClient httpClient = new HttpClient();
+			httpClient.DefaultRequestHeaders.Authorization =
+				new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token);
 			var response=await httpClient.SendAsync(requestMessage);
 			if (response.IsSuccessStatusCode)
 			{

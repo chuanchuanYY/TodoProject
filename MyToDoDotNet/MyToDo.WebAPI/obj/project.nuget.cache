@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "gVWa2UwxpQxbHPsjf25TFzcX3H+QqetuPh2tRPjOA+mfegKZ9uS8DValoMVMFJXwyEU3lNfqxPbIZmPpSrNshQ==",
+  "dgSpecHash": "vPcDz9+UTecElw60V8CdJGb+vcROpS1hgm+S7wem+H0xVDw8yoVgIeJXX8H8z5L2xzFRPI4wVTVchY7YtK4GWg==",
   "success": true,
-  "projectFilePath": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyToDo.WebAPI\\MyToDo.WebAPI.csproj",
+  "projectFilePath": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyToDo.WebAPI\\MyToDo.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\川川\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\川川\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\川川\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\川川\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.22\\microsoft.aspnetcore.authentication.jwtbearer.6.0.22.nupkg.sha512",
     "C:\\Users\\川川\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\川川\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\川川\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",

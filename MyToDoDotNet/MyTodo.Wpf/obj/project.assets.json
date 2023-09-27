@@ -1060,11 +1060,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Wpf\\MyTodo.Wpf.csproj",
+      "projectUniqueName": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Wpf\\MyTodo.Wpf.csproj",
       "projectName": "MyTodo.Wpf",
-      "projectPath": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Wpf\\MyTodo.Wpf.csproj",
+      "projectPath": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Wpf\\MyTodo.Wpf.csproj",
       "packagesPath": "C:\\Users\\川川\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Wpf\\obj\\",
+      "outputPath": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Wpf\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1085,8 +1085,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj": {
-              "projectPath": "D:\\MyWork\\练习项目\\初级项目\\MyTodo\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj"
+            "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj": {
+              "projectPath": "D:\\MyWork\\练习项目\\初级项目\\uploadGithub\\TodoProject\\MyToDoDotNet\\MyTodo.Common\\MyTodo.Common.csproj"
             }
           }
         }

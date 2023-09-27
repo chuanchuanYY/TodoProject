@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyToDo.WebAPI.Common;
 using MyToDo.WebAPI.Entitys;
+using System.Security.Claims;
 
 namespace MyToDo.WebAPI.Services
 {
@@ -11,6 +12,7 @@ namespace MyToDo.WebAPI.Services
 		public UserService(MyDbContext dbContext)
         {
 			this.dbContext = dbContext;
+			
 		}
         public async Task<APIRespons> Add(UserDto user)
 		{
@@ -30,7 +32,10 @@ namespace MyToDo.WebAPI.Services
 			{
 				return APIResponsHelper.CreateFail(null,"账号或密码错误");
 			}
-			return APIResponsHelper.CreateOK(user,"登录成功");
+			var claims = new List<Claim>();
+			claims.Add(new Claim(ClaimTypes.NameIdentifier,user.UserName));
+			var jwt=JWTHelper.createJwt(claims);
+			return APIResponsHelper.CreateOkWithToken(jwt,user, "登录成功");
 		}
 	}
 }

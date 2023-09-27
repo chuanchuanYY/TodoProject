@@ -19,5 +19,6 @@ namespace MyTodo.Wpf.Common
 		{
 			return User;
 		}
+		public static string? Token { get; set; }
 	}
 }

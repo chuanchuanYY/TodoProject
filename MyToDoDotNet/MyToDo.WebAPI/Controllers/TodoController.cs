@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyToDo.WebAPI.Services;
 
@@ -6,6 +7,7 @@ namespace MyToDo.WebAPI.Controllers
 {
 	[Route("api/[controller]/[action]")]
 	[ApiController]
+	[Authorize]
 	public class TodoController : ControllerBase
 	{
 		private readonly ITodoService todoService;

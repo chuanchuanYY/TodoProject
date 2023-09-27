@@ -1,6 +1,9 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MyToDo.WebAPI.Entitys;
 using MyToDo.WebAPI.Services;
+using System.Text;
 
 namespace MyToDo.WebAPI
 {
@@ -16,7 +19,28 @@ namespace MyToDo.WebAPI
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
+			builder.Services.AddCors(option=> {
+
+				option.AddDefaultPolicy(opt => {
+					opt.AllowAnyOrigin()
+					   .AllowAnyMethod()
+					   .AllowAnyHeader();
+				});
+			});
 			
+			builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+				.AddJwtBearer(conf => {
+					var keybyts = Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JwtKey").Value!.ToString()!);
+					var secKey = new SymmetricSecurityKey(keybyts);
+					conf.TokenValidationParameters = new()
+					{
+						ValidateIssuer = false,
+						ValidateAudience = false,
+						ValidateLifetime = false,
+						ValidateIssuerSigningKey = true,
+						IssuerSigningKey = secKey
+					};
+				});
 			//×¢²á·þÎñ  Register Services
 			builder.Services.AddDbContext<MyDbContext>(option => {
 				var str = builder.Configuration.GetSection("DbConnectStr").Value;
@@ -36,9 +60,9 @@ namespace MyToDo.WebAPI
 			}
 
 			app.UseHttpsRedirection();
-
+			app.UseCors();
+			app.UseAuthentication();
 			app.UseAuthorization();
-
 
 			app.MapControllers();
 
