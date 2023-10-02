@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyToDo.WebAPI.Services;
+using System.Security.Claims;
 
 namespace MyToDo.WebAPI.Controllers
 {
@@ -47,6 +48,8 @@ namespace MyToDo.WebAPI.Controllers
 		[HttpGet]
 		public async Task<ActionResult<APIRespons>> GetAllByUser(string  userName,string Password)
 		{
+			var t = this.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+			Console.WriteLine(t);
 			if (userName == null||Password==null)
 			{
 				return BadRequest();
